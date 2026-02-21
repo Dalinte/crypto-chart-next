@@ -1,0 +1,36 @@
+/**
+ * Mock candlestick data for BTC/USDC
+ * Format: { time, open, high, low, close }
+ */
+export const candlestickData = [
+  { time: '2024-01-01', open: 42000, high: 42500, low: 41800, close: 42300 },
+  { time: '2024-01-02', open: 42300, high: 43100, low: 42100, close: 42800 },
+  { time: '2024-01-03', open: 42800, high: 43500, low: 42600, close: 43200 },
+  { time: '2024-01-04', open: 43200, high: 43800, low: 42900, close: 43000 },
+  { time: '2024-01-05', open: 43000, high: 43200, low: 42200, close: 42500 },
+  { time: '2024-01-06', open: 42500, high: 43000, low: 42300, close: 42900 },
+  { time: '2024-01-07', open: 42900, high: 44000, low: 42800, close: 43800 },
+  { time: '2024-01-08', open: 43800, high: 44500, low: 43500, close: 44200 },
+  { time: '2024-01-09', open: 44200, high: 44800, low: 43900, close: 44100 },
+  { time: '2024-01-10', open: 44100, high: 44300, low: 43200, close: 43500 },
+  { time: '2024-01-11', open: 43500, high: 43800, low: 42800, close: 43000 },
+  { time: '2024-01-12', open: 43000, high: 43600, low: 42700, close: 43400 },
+  { time: '2024-01-13', open: 43400, high: 44200, low: 43200, close: 44000 },
+  { time: '2024-01-14', open: 44000, high: 45000, low: 43800, close: 44800 },
+  { time: '2024-01-15', open: 44800, high: 45500, low: 44500, close: 45200 },
+  { time: '2024-01-16', open: 45200, high: 45800, low: 44800, close: 45000 },
+  { time: '2024-01-17', open: 45000, high: 45300, low: 44200, close: 44500 },
+  { time: '2024-01-18', open: 44500, high: 44900, low: 44000, close: 44700 },
+  { time: '2024-01-19', open: 44700, high: 45600, low: 44500, close: 45400 },
+  { time: '2024-01-20', open: 45400, high: 46000, low: 45100, close: 45800 },
+  { time: '2024-01-21', open: 45800, high: 46500, low: 45500, close: 46200 },
+  { time: '2024-01-22', open: 46200, high: 46800, low: 45800, close: 46000 },
+  { time: '2024-01-23', open: 46000, high: 46200, low: 45000, close: 45300 },
+  { time: '2024-01-24', open: 45300, high: 45800, low: 45000, close: 45600 },
+  { time: '2024-01-25', open: 45600, high: 46500, low: 45400, close: 46300 },
+  { time: '2024-01-26', open: 46300, high: 47000, low: 46000, close: 46800 },
+  { time: '2024-01-27', open: 46800, high: 47500, low: 46500, close: 47200 },
+  { time: '2024-01-28', open: 47200, high: 47800, low: 46800, close: 47000 },
+  { time: '2024-01-29', open: 47000, high: 47200, low: 46000, close: 46500 },
+  { time: '2024-01-30', open: 46500, high: 47000, low: 46200, close: 46800 },
+];
