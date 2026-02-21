@@ -1,4 +1,4 @@
-import { ChartWidget } from '@/components/chart';
+import { ChartWidget } from './ChartWidget';
 
 export default function ChartPlaceholder() {
   return (

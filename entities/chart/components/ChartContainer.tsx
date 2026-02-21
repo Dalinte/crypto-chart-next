@@ -10,7 +10,7 @@ import {
 import { useEffect, useRef } from 'react';
 import { useTheme } from 'next-themes';
 import { Candle } from '../types';
-import { useChartStore } from '@/store/chartStore';
+import { useChartStore } from '@/entities/chart/store/chartStore';
 
 const getCSSVariable = (variableName: string): string => {
   return getComputedStyle(document.documentElement).getPropertyValue(variableName).trim() || '';

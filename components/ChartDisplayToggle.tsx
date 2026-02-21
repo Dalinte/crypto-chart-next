@@ -1,6 +1,6 @@
 'use client';
 
-import { useChartStore } from '../store/chartStore';
+import { useChartStore } from '@/entities/chart/store/chartStore';
 import { PriceScaleMode } from 'lightweight-charts';
 
 export default function ChartDisplayToggle() {

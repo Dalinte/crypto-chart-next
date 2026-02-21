@@ -1,4 +1,4 @@
-import ChartPlaceholder from "@/components/ChartPlaceholder";
+import ChartPlaceholder from "@/entities/chart/components/ChartPlaceholder";
 import RightContent from "@/components/RightContent";
 
 export default function Home() {
