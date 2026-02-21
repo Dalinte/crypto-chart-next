@@ -1,17 +1,26 @@
-import { ChartContainer} from './ChartContainer';
-import { candlestickData } from './../mock/candlesticks';
+import { ChartContainer } from './ChartContainer';
+import { cacheLife } from 'next/cache';
+import { BASE_URL } from '@/shared/global.consts';
+import { Candle } from '@/entities/chart/types';
 
 interface ChartProps {
   symbol?: string;
 }
 
-export function ChartWidget({ symbol = 'BTC/USDC' }: ChartProps) {
+const ChartWidget = async ({ symbol = 'BTC/USDC' }: ChartProps) => {
+  'use cache';
+  cacheLife('minutes');
+  const response = await fetch(`${BASE_URL}/api/chart`);
+  const candles: Candle[] = await response.json();
+
   return (
     <div className="chart-container">
       <div className="chart-header">
         <span className="chart-symbol">{symbol}</span>
       </div>
-      <ChartContainer data={candlestickData}></ChartContainer>
+      <ChartContainer data={candles}></ChartContainer>
     </div>
   );
-}
+};
+
+export default ChartWidget;

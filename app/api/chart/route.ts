@@ -16,9 +16,9 @@ export async function GET(req: NextRequest) {
     const { searchParams } = new URL(req.url)
 
     const symbol = searchParams.get('symbol') ?? 'BTCUSDT'
-    const interval = searchParams.get('interval') ?? '1h'
+    const interval = searchParams.get('interval') ?? '1w'
 
-    const url = `https://api.binance.com/api/v3/klines?symbol=${symbol}&interval=${interval}&limit=500`
+    const url = `https://api.binance.com/api/v3/klines?symbol=${symbol}&interval=${interval}&limit=50`
 
     const res = await fetch(url, {
       next: { revalidate: 60 },
@@ -31,7 +31,7 @@ export async function GET(req: NextRequest) {
     const data: BinanceKline[] = await res.json()
 
     const candles = data.map((kline) => ({
-      time: new Date(kline[0]).toISOString(),
+      time: new Date(kline[0]).toISOString().split('T')[0],
       open: Number(kline[1]),
       high: Number(kline[2]),
       low: Number(kline[3]),
