@@ -8,6 +8,7 @@ import {
   IChartApi,
 } from 'lightweight-charts';
 import { useEffect, useRef } from 'react';
+import { useTheme } from 'next-themes';
 import { Candle } from '../types';
 import { useChartStore } from '@/store/chartStore';
 
@@ -22,6 +23,7 @@ interface ChartContainerProps {
 export const ChartContainer = (props: ChartContainerProps) => {
   const { data } = props;
   const { chartMode } = useChartStore();
+  const { theme } = useTheme();
 
   const chartContainerRef = useRef<HTMLDivElement | null>(null);
   const chartRef = useRef<IChartApi | null>(null);
@@ -35,15 +37,34 @@ export const ChartContainer = (props: ChartContainerProps) => {
     });
   };
 
+  const updateChartTheme = (currentTheme: string) => {
+    if (!chartRef.current) return;
+    
+    const isDark = currentTheme === 'dark';
+    chartRef.current.applyOptions({
+      layout: {
+        background: { type: ColorType.Solid, color: isDark ? '#000000' : '#ffffff' },
+        textColor: isDark ? '#ffffff' : '#000000',
+      },
+    });
+  };
+
   useEffect(() => {
     updateChartScaleMode(chartMode);
   }, [chartMode])
 
   useEffect(() => {
+    if (theme) {
+      updateChartTheme(theme);
+    }
+  }, [theme])
+
+  useEffect(() => {
     if (!chartContainerRef.current) return;
 
-    const backgroundColor = getCSSVariable('--bg-secondary');
-    const textColor = 'white';
+    const isDark = theme === 'dark';
+    const backgroundColor = isDark ? '#000000' : '#ffffff';
+    const textColor = isDark ? '#ffffff' : '#000000';
     const chartHeight = parseInt(getCSSVariable('--chart-height')) || 600;
 
     const handleResize = () => {
@@ -84,7 +105,7 @@ export const ChartContainer = (props: ChartContainerProps) => {
       window.removeEventListener('resize', handleResize);
       chart.remove();
     };
-  }, [data]);
+  }, [data, theme]);
 
   useEffect(() => {
     if (chartRef.current) {
